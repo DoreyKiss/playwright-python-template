@@ -47,8 +47,8 @@ jobs:
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: |
-          poetry run playwright install chromium firefox webkit
           poetry install --no-interaction --no-root
+          poetry run playwright install chromium firefox webkit
       #----------------------------------------------
       # install your root project, if required
       #----------------------------------------------
