@@ -1,4 +1,4 @@
-name: test
+name: Run playwright tests
 
 on:
   pull_request:
@@ -65,7 +65,10 @@ jobs:
         uses: ctrf-io/github-test-reporter@v1
         with:
           report-path: './test_report.json'
-          flaky-rate-report: true
+          summary-report: true
+          github-report: true
+          upload-artifact: true
+          artifact-name: 'ctrf-report'
           pull-request: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
