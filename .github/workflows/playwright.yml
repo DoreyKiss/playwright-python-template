@@ -1,4 +1,4 @@
-name: test
+name: Run playwright tests
 
 on:
   pull_request:
@@ -11,6 +11,9 @@ concurrency:
 jobs:
   test:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       #----------------------------------------------
       #       check-out repo and set-up python
@@ -53,7 +56,9 @@ jobs:
       # install your root project, if required
       #----------------------------------------------
       - name: Install project
-        run: poetry install --no-interaction
+        run: |
+          poetry install --no-interaction
+          poetry run playwright install chromium firefox webkit
       #----------------------------------------------
       #              run test suite
       #----------------------------------------------
@@ -65,8 +70,12 @@ jobs:
         uses: ctrf-io/github-test-reporter@v1
         with:
           report-path: './test_report.json'
-          flaky-rate-report: true
+          summary-report: true
+          github-report: true
+          upload-artifact: true
+          artifact-name: 'ctrf-report'
           pull-request: true
+          update-comment: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: always()
