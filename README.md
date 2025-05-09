@@ -2,11 +2,11 @@
 
 this project uses [poetry](https://python-poetry.org/docs/#installing-with-pipx).
 
-1. Install required tools
+1. Install required tools, and select the environment.
 
 ```bash
     brew install poetry
-    brew install direnv 
+    poetry env use python3.12 
 ```
 2. check envs
 
@@ -26,6 +26,7 @@ this project uses [poetry](https://python-poetry.org/docs/#installing-with-pipx)
 ```bash
     poetry install 
 ```
+
 ### Selecting the interpreter:
 
 paste the output of this script to the interpreter path
@@ -34,14 +35,32 @@ paste the output of this script to the interpreter path
     poetry env info --path 
 ```
 
-### Code Conventions
+### for a fresh start, try these:
 
 ```bash
-    Classes PascalCase class DogBowl:
-    Files snake_case dog_bowl.py
-    Functions camelCase def feedDog():
-    Constants UPPER_SNAKE MAX_DOGS = 5
-    Variables lower_snake dog_name = "Bodri"
+    poetry cache clear --all pypi     # Clear cache
+    poetry env remove --all           # Reset environment
+    rm poetry.lock && poetry install  # Start fresh
+```
+
+### Adding packages using poetry:
+
+1. adding dependencies
+
+```bash
+    poetry add requests
+```
+
+2. adding dev dependencies
+
+```bash
+    poetry add --dev pytest-playwright
+```
+
+2. install browsers
+
+```bash
+    poetry run playwright install firefox
 ```
 
 ### Running code
@@ -66,7 +85,24 @@ poetry run python examples/math.py
     poetry run pytest
 ```
 
-poetry run pytest
+
+### Playwright.
+[playwright-python](https://playwright.dev/python/docs/intro),
+Playwright recommends using the official Playwright Pytest plugin to write end-to-end tests.
+It provides context isolation, running it on multiple browser configurations out of the box.
+
+
+```bash
+    poetry cache clear --all pypi     # Clear cache
+    poetry env remove --all           # Reset environment
+    rm poetry.lock && poetry install  # Start fresh
+
+    # For parallel execution install
+    poetry add --dev pytest-xdist 
+    
+    #  This tells pytest to run tests on 2 cores (you can increase this number based on how many CPU cores you want to utilize).
+    --numprocesses 2 or -n 2
+```
 
 ### Extensions
 
@@ -80,5 +116,15 @@ for  [spell checking](https://marketplace.visualstudio.com/items?itemName=street
 
 [flake8](https://pypi.org/project/flake8/),
 [isort](https://pypi.org/project/isort/),
-[safety](https://pypi.org/project/safety/),
+[black](https://pypi.org/project/black/),
 
+
+### Code Conventions
+
+```bash
+    Classes PascalCase class DogBowl:
+    Files snake_case dog_bowl.py
+    Functions camelCase def feedDog():
+    Constants UPPER_SNAKE MAX_DOGS = 5
+    Variables lower_snake dog_name = "Bodri"
+```
