@@ -1,9 +1,0 @@
-{
-    "editor.formatOnSave": true,
-    "[yaml]": {
-        "editor.defaultFormatter": "kachick.vscode-yamlfmt"
-    },
-    "[github-actions-workflow]": {
-        "editor.defaultFormatter": "kachick.vscode-yamlfmt"
-    }
-}
