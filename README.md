@@ -1,4 +1,14 @@
-# Local Python Environment Setup
+# Template Repository for Playwright UI and API Testing
+
+This repository serves as a template for setting up Playwright-based UI and API testing.  
+It aims to provide a clean, reusable foundation for end-to-end and integration testing, including:
+
+- Browser automation with Chromium, Firefox, and WebKit
+- API mocking and testing support
+- CI/CD integration (GitHub Actions) with [ctrf reporting](https://ctrf.io/)
+- Containerized execution using Docker
+
+### Local Python Environment Setup
 
 this project uses [poetry](https://python-poetry.org/docs/#installing-with-pipx).
 
@@ -57,34 +67,23 @@ paste the output of this script to the interpreter path
     poetry add --dev pytest-playwright
 ```
 
-2. install browsers
+4. install browsers
 
 ```bash
-    poetry run playwright install firefox
+    poetry run playwright install firefox chromium
 ```
 
-### Running code
+### Running code  
 
-poetry run python examples/math.py      
-
-1. for scripts defined in the pyproject.toml
-
-```bash
-    poetry run hello-script
-```
-
-2. for python files
-
-```bash
-    poetry run python examples/math.py 
-```
-
-3. for running pytests
-
+1. for running all pytests
 ```bash
     poetry run pytest
 ```
 
+2. for playwright tests
+```bash
+    poetry run pytest -m playwright  
+```
 
 ### Playwright.
 [playwright-python](https://playwright.dev/python/docs/intro),
@@ -93,10 +92,6 @@ It provides context isolation, running it on multiple browser configurations out
 
 
 ```bash
-    poetry cache clear --all pypi     # Clear cache
-    poetry env remove --all           # Reset environment
-    rm poetry.lock && poetry install  # Start fresh
-
     # For parallel execution install
     poetry add --dev pytest-xdist 
     
