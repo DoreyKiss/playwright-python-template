@@ -745,6 +745,21 @@ requests = ">=2.9"
 test = ["black (>=22.1.0)", "flake8 (>=4.0.1)", "pre-commit (>=2.17.0)", "pytest-localserver (>=0.7.1)", "tox (>=3.24.5)"]
 
 [[package]]
+name = "pytest-json-ctrf"
+version = "0.3.5"
+description = "Pytest plugin to generate json report in CTRF (Common Test Report Format)"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "pytest_json_ctrf-0.3.5-py3-none-any.whl", hash = "sha256:e82fd1d69be2f92385bc33540063e5ad7b17b36de67764c84f3ceb9815a895e9"},
+    {file = "pytest_json_ctrf-0.3.5.tar.gz", hash = "sha256:3efc3afc6dd1fb69f73031217b1dfa239154241aaca63db8a8995cf3779bd7ff"},
+]
+
+[package.dependencies]
+pytest = ">6.0.0"
+
+[[package]]
 name = "pytest-playwright"
 version = "0.7.0"
 description = "A pytest wrapper with fixtures for Playwright to automate web browsers"
@@ -1018,4 +1033,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.1"
 python-versions = "~3.12"
-content-hash = "8d759fd21585bcb3fbc1a2edb804a2b60e802cee7919b66fae6e1c2721489fdc"
+content-hash = "69fb9f13cd60e418b532a9468d5f9e6ac1f277b84a8478790508131abdae0198"

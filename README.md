@@ -128,3 +128,13 @@ for  [spell checking](https://marketplace.visualstudio.com/items?itemName=street
     Constants UPPER_SNAKE MAX_DOGS = 5
     Variables lower_snake dog_name = "Bodri"
 ```
+
+### CI
+
+[common test reporting format](https://github.com/infopulse/pytest-common-test-report-json),
+
+1. validate your action via act
+```bash
+    brew install act  
+    act pull_request --dryrun 
+```
