@@ -104,6 +104,11 @@ It provides context isolation, running it on multiple browser configurations out
     --numprocesses 2 or -n 2
 ```
 
+### Running playwright python in docker:
+[running in docker](https://playwright.dev/python/docs/docker),
+[docker-image](https://hub.docker.com/r/microsoft/playwright-python)
+
+
 ### Extensions
 
 [python](https://marketplace.visualstudio.com/items?itemName=ms-python.python),
@@ -112,22 +117,13 @@ It provides context isolation, running it on multiple browser configurations out
 for  [toml](https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml) file,
 for  [spell checking](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker).
 
+
 ### Code Quality
 
 [flake8](https://pypi.org/project/flake8/),
 [isort](https://pypi.org/project/isort/),
 [black](https://pypi.org/project/black/),
 
-
-### Code Conventions
-
-```bash
-    Classes PascalCase class DogBowl:
-    Files snake_case dog_bowl.py
-    Functions camelCase def feedDog():
-    Constants UPPER_SNAKE MAX_DOGS = 5
-    Variables lower_snake dog_name = "Bodri"
-```
 
 ### CI
 
