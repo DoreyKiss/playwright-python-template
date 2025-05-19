@@ -16,11 +16,19 @@ docker-cleanup:
 docker-run-pw-tests:
 	mkdir -p test-reports/docker
 	docker run --rm \
+		--ipc=host \
+		--security-opt seccomp=seccomp_profile.json \
 		-v $(PWD)/test-reports/docker:/app/test-reports/docker \
  		my-playwright-poetry
 
 docker-pw-debug:
-	docker run -d --name pw-tests my-playwright-poetry
+	mkdir -p test-reports/docker
+	docker run -d \
+		--ipc=host \
+		--security-opt seccomp=seccomp_profile.json \
+		--name pw-tests \
+		-v $(PWD)/test-reports/docker:/app/test-reports/docker \
+		my-playwright-poetry
 
 run-local-pw-tests:
 	poetry run pytest 

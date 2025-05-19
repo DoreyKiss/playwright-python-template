@@ -1,6 +1,7 @@
 # Base image with Playwright and Python
 FROM mcr.microsoft.com/playwright/python:v1.51.0-noble
 
+
 RUN pip install poetry 
 
 WORKDIR /app
@@ -17,6 +18,10 @@ COPY . .
 
 RUN poetry run playwright install chromium firefox
 
-# todo create a safer user for test run
 
-CMD ["poetry", "run", "pytest", "--self-contained-html"]
+ENV TZ=Europe/Budapest
+
+# Use the safer non-root user
+USER pwuser
+
+CMD ["poetry", "run", "pytest"]

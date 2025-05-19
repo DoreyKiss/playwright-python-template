@@ -105,9 +105,35 @@ It provides context isolation, running it on multiple browser configurations out
 ```
 
 ### Running playwright python in docker:
-[running in docker](https://playwright.dev/python/docs/docker),
-[docker-image](https://hub.docker.com/r/microsoft/playwright-python)
 
+When we want our tests to be
+[running in docker](https://playwright.dev/python/docs/docker), we have to use this image:
+[docker-image](https://hub.docker.com/r/microsoft/playwright-python), or build our own.
+
+1. assuming you already have docker installed use this command to pull and build the image
+```bash
+    make docker-setup
+```
+
+2. run the tests in a docker container but also the `--rm` flag in the docker run command tells Docker to: 🧹 Automatically remove the container after it exits
+```bash
+    make docker-run-pw-tests
+```
+
+3. look at the report using:
+```bash
+    make show-docker-report
+```
+
+4. For debugging purposes you might want to inspect the environment, run commands manually, or troubleshoot issues inside the container, you can start it in detached mode without automatically removing it with:
+```bash
+    make docker-pw-debug
+```
+
+5. For cleanup you might want to use:
+```bash
+    make docker-cleanup
+```
 
 ### Extensions
 

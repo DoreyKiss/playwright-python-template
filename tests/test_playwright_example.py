@@ -1,6 +1,8 @@
 import re
+
 import pytest
 from playwright.sync_api import Page, expect
+
 
 @pytest.mark.playwright
 def test_has_title(page: Page):
@@ -8,6 +10,7 @@ def test_has_title(page: Page):
 
     # Expect a title "to contain" a substring.
     expect(page).to_have_title(re.compile("Playwright"))
+
 
 @pytest.mark.playwright
 def test_get_started_link(page: Page):

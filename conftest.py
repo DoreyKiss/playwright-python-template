@@ -1,7 +1,7 @@
-# conftest.py
 import datetime
-from pathlib import Path
 import os
+from pathlib import Path
+
 
 def pytest_configure(config):
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
